@@ -6,7 +6,10 @@ consensus_output='/storage/home/hcoda1/5/dkundnani3/p-fstorici3-0/rich_project_b
 coordinates=$consensus_output/coordinates
 
 for sample in Y1 Y2 Y5 Y6; do
-cat $ref | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}.fa &
+#cat $ref | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}.fa &
+#bcftools consensus -f $ref -o $CONSENSUS_FASTA ${vcfpath}/haplo_${sample}.vcf.gz &
+samtools faidx $ref chrXIV:490317-491240 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh201.fa
+samtools faidx $ref chrXII:447982-448314 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh203.fa
 done
 
 ## coordiantes has co-ordinates of specific region of genome
