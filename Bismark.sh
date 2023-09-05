@@ -1,16 +1,19 @@
 #Initializing variables
 conda activate conda-env #activate conda environment with bismark tool 
-ref='/storage/home/hcoda1/5/dkundnani3/p-fstorici3-0/rich_project_bio-storici/reference/hg38/filtered_hg38.fa' #reference fasta file
+ref='/storage/home/hcoda1/5/dkundnani3/p-fstorici3-0/rich_project_bio-storici/reference/hg38/filtered_hg38' #reference fasta file
 aligned='/storage/home/hcoda1/5/dkundnani3/scratch/Bismark/bams' #folder for alignment files
-trimmed_reads=''
+trimmed_reads='/storage/home/hcoda1/5/dkundnani3/scratch/Bismark/trimmed'
 ###################################################
 # Start pipeline
 ###################################################
-tR1=$trimmed_reads/$(basename $R1 .fq.gz)_val_
-tR2=$trimmed_reads/
+#Prepare genome
+bismark_genome_preparation --bowtie2 $ref
+#Unzip trimmed fq files
+tR1=$trimmed_reads/${sample}_R1_val_1.fq.gz
+tR2=$trimmed_reads/${sample}_R2_val_2.fq.gz
 pigz -dfkp 6 $FQZ1 & pigz -dfkp 6 $FQZ2
-FQ1=`echo $FQZ1 | sed 's/.gz$//'`
-FQ2=`echo $FQZ2 | sed 's/.gz$//'`
+FQ1=`echo $tR1| sed 's/.gz$//'`
+FQ2=`echo $tR2| sed 's/.gz$//'`
 wait
 
 ###################################################
