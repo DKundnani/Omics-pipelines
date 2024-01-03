@@ -1,6 +1,6 @@
 #!usr/bin/env python3
 
-#Usage: Create a vcf folder to plate all vcf files and run from outside that folder. 
+#Usage: Create a vcf folder to plaice all vcf files and run from outside that folder. 
 
 from SigProfilerMatrixGenerator import install as genInstall
 from SigProfilerMatrixGenerator.scripts import SigProfilerMatrixGeneratorFunc as matGen
