@@ -41,13 +41,13 @@ Also supported by percentage and composition of rNMPs from ribose-seq output
 The development version from [GitHub](https://github.com/) with:
 
 ```sh
-git clone https://github.com/DKundnani/Ribose-Map-QC.git
+git clone https://github.com/DKundnani/Omics-pipelines.git
 ```
 
 ### Creating the enviroment with required dependencies
 
 ```sh
-conda env create --file /Ribose-Map-QC/env.yml
+conda env create --file /Omics-pipelines/env.yml
 ```
 
 ## Getting QC report
@@ -62,9 +62,6 @@ vim MMremoval_configure_run.sh
 bash MMremoval_configure_run.sh
 
 ```
-
-
-
 
 
 <!-- CONTRIBUTING -->
