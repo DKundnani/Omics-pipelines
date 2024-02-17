@@ -8,8 +8,9 @@ coordinates=$consensus_output/coordinates
 for sample in Y1 Y2 Y5 Y6; do
 #cat $ref | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}.fa &
 #bcftools consensus -f $ref -o $CONSENSUS_FASTA ${vcfpath}/haplo_${sample}.vcf.gz &
-samtools faidx $ref chrXIV:490317-491240 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh201.fa
-samtools faidx $ref chrXII:447982-448314 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh203.fa
+samtools faidx $ref chrXIV:490317-491240 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh201.fa #rnh201
+samtools faidx $ref chrXII:447982-448314 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh203.fa #rnh203
+samtools faidx $ref chrXIV:1019638-1020420 | bcftools consensus ${vcfpath}/haplo_${sample}.vcf.gz > ${consensus_output}/${sample}_rnh202.fa #rnh202
 done
 
 ## coordiantes has co-ordinates of specific region of genome
